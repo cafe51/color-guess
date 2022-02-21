@@ -18,18 +18,6 @@ function corAserAdvinhada() {
   cor.innerText = `${balls2[i].style.backgroundColor}`;
 }
 
-// Math.floor(Math.random() * 6)
-
-// function(evt) {
-//   evt.target
-// }
-
-// function resposta() {
-//     const balls = querySelector('.ball');
-//     for (let i = 0; i < balls.length; i += 1) {
-//   }
-// }
-
 function responde(evt) {
   // const balls = document.querySelectorAll('.ball');
   const corCerta = document.querySelector('#rgb-color');
@@ -46,24 +34,31 @@ function jogo() {
   }
 }
 
+function removeCirculos() {
+  const balls = document.querySelectorAll('.ball');
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].parentNode.removeChild(balls[i]);
+  }
+}
+
+function resetGame() {
+  removeCirculos();
+  opcoesDeCores();
+  corAserAdvinhada();
+  jogo();
+  const mensagem = document.querySelector('#answer');
+  mensagem.innerText = 'Escolha uma cor';
+}
+
+function atribuiEfeitoAoBotaoReset() {
+  const botaoR = document.querySelector('#reset-game');
+  botaoR.addEventListener('click', resetGame);
+}
+
 opcoesDeCores();
 
 corAserAdvinhada();
 
 jogo();
 
-// function jogo() {
-//   const balls = document.querySelectorAll('.ball');
-//   const corCerta = document.querySelector('#rgb-color');
-//   const mensagem = document.querySelector('#answer');
-//   for (let i = 0; i < balls.length; i += 1) {
-//     balls[i].addEventListener('click', function() {
-//       for (let i = 0; i < balls.length; i += 1){
-//         if (`${balls[i].style.backgroundColor}` === `${corCerta.style.backgroundColor}`) {
-//           mensagem.innerText = 'Acertou!';
-//         } else mensagem.innerText = 'Errou!';
-//       }
-      
-//     });
-//   }
-// }
+atribuiEfeitoAoBotaoReset();
