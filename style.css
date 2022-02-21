@@ -1,3 +1,7 @@
+#answer {
+  text-align: center;
+}
+
 #title {
   text-align: center;
 }
@@ -7,6 +11,7 @@
 }
 
 #opcoes {
+
   /* background-color: grey; */
   text-align: center;
 }
@@ -18,5 +23,6 @@
   display: inline-block;
   border-radius: 50%;
   margin-right: 10px;
-  border: 1px solid black
+  border: 1px solid black;
 }
+
