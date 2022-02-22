@@ -1,3 +1,5 @@
+let pontos = 0;
+
 function opcoesDeCores() {
   for (let i = 0; i < 6; i += 1) {
     const balls = document.createElement('div');
@@ -11,6 +13,11 @@ function opcoesDeCores() {
   }
 }
 
+function addPlacar() {
+  const placar = document.querySelector('#score');
+  placar.innerText = `Placar: ${pontos}`;
+}
+
 function corAserAdvinhada() {
   const balls2 = document.querySelectorAll('.ball');
   const cor = document.querySelector('#rgb-color');
@@ -19,11 +26,13 @@ function corAserAdvinhada() {
 }
 
 function responde(evt) {
-  // const balls = document.querySelectorAll('.ball');
+  const placar = document.querySelector('#score');
   const corCerta = document.querySelector('#rgb-color');
   const mensagem = document.querySelector('#answer');
   if (evt.target.style.backgroundColor === corCerta.innerText) {
     mensagem.innerText = 'Acertou!';
+    pontos += 3;
+    placar.innerText = `Placar: ${pontos}`;
   } else mensagem.innerText = 'Errou! Tente novamente!';
 }
 
@@ -62,3 +71,5 @@ corAserAdvinhada();
 jogo();
 
 atribuiEfeitoAoBotaoReset();
+
+addPlacar();
